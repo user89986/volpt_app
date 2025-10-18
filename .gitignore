@@ -399,3 +399,58 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# ===============================================
+# FLUTTER SPECIFIC IGNORE RULES
+# ===============================================
+
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+pubspec.lock
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Web related
+lib/generated_plugin_registrant.dart
+
+# Android
+android/**/gradle-wrapper.jar
+android/**/.gradle
+android/**/build
+android/**/local.properties
+android/**/GeneratedPluginRegistrant.java
+*.jks
+
+# iOS
+ios/**/Pods/
+ios/**/Podfile.lock
+ios/**/.symlinks/
+ios/**/xcuserdata/
+ios/**/Flutter/App.framework
+ios/**/Flutter/Flutter.framework
+ios/**/Flutter/Generated.xcconfig
+ios/**/Flutter/ephemeral/
+ios/**/Flutter/flutter_assets/
+
+# Flutter pub
+.dart_tool/
+.pub-cache/
+.pub/
+/build/
+
+# Conventional directory for build outputs
+build/
+
+# Obfuscating Dart code
+*.app.dart.js
+*.app.dart.js.map
+
+# Debug
+*.log
+
+# Exceptions to above rules.
+!**/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
