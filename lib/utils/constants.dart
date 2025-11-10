@@ -1,3 +1,4 @@
+// lib/utils/constants.dart
 class AppConstants
 {
 static const String supabaseUrl ='https://wvjeycfpynxctsfelvcu.supabase.co';

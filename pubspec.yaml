@@ -4,16 +4,19 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.9.2
+  sdk: ">=3.9.2 <4.0.0"
 
 dependencies:
+  collection: ^1.18.0
   flutter:
     sdk: flutter
 
-  supabase_flutter: ^2.6.0
+  supabase_flutter: ^2.10.3
   cupertino_icons: ^1.0.8
   http: ^1.2.2          
-  html: ^0.15.4 
+  html: ^0.15.4
+  flutter_map: ^8.2.2  
+  latlong2: ^0.9.1    
 
 dev_dependencies:
   flutter_test:

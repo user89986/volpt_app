@@ -1,7 +1,7 @@
 // lib/services/news_parser.dart
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as parser;
-import '../models/news_model.dart';
+import '../models/news.dart';
 
 class NewsParser {
   static const String baseUrl = 'https://volpt.ru';

@@ -1,3 +1,4 @@
+//lib/models/news.dart
 class NewsItem {
   final String title;
   final String description;

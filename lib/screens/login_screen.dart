@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'register_screen.dart';
-import 'news_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -25,9 +24,11 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-      if (response.user != null) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text('Вход выполнен!')));
+      if (response.user != null && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Вход выполнен!'))
+        );
+        Navigator.of(context).pushNamedAndRemoveUntil('/home', (_) => false);
       }
     } on AuthException catch (e) {
       setState(() => _errorMessage = e.message);
@@ -45,8 +46,8 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           children: [
             TextField(
-              controller: _emailController, 
-              decoration: const InputDecoration(labelText: 'Email')
+              controller: _emailController,
+              decoration: const InputDecoration(labelText: 'Email'),
             ),
             const SizedBox(height: 10),
             TextField(
@@ -55,40 +56,20 @@ class _LoginScreenState extends State<LoginScreen> {
               obscureText: true,
             ),
             const SizedBox(height: 20),
-            
             if (_errorMessage != null)
               Text(_errorMessage!, style: const TextStyle(color: Colors.red)),
-            
-            // Кнопка Входа
             ElevatedButton(
               onPressed: _loading ? null : _signIn,
               child: _loading
                   ? const CircularProgressIndicator()
                   : const Text('Войти'),
             ),
-            
             const SizedBox(height: 10),
-            
-            // Кнопка Регистрации
             TextButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const RegisterScreen()));
               },
               child: const Text('Нет аккаунта? Зарегистрироваться'),
-            ),
-            
-            const SizedBox(height: 20),
-            
-            // Кнопка Новостей (ДОБАВЬТЕ ЭТОТ БЛОК)
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const NewsScreen()));
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                foregroundColor: Colors.white,
-              ),
-              child: const Text('📰 Посмотреть новости ВПТ'),
             ),
           ],
         ),
